@@ -1,0 +1,73 @@
+.add-button {
+  float: right;
+  width: 150px;
+  height: 50px;
+  margin-top: -70px;
+  margin-right: 5px;
+  border-color: transparent;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: lightblue;
+  font-weight: bold;
+  font-family: Montserrat;
+}
+
+.add-image {
+  width: 25px;
+  height: 25px;
+}
+
+
+.table {
+  padding: 5px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: lightblue;
+  border-radius: 5px;
+}
+
+th {
+  width: 30px;
+  font-family: Montserrat;
+}
+
+td {
+  width: 20px;
+  font-family: Montserrat;
+}
+
+.title {
+  width: 20%;
+}
+
+.author {
+  width: 20%;
+}
+
+.genre {
+  width: 15%;
+}
+
+.price {
+  width: 10%;
+}
+
+.publish-year {
+  width: 10%;
+}
+
+.publisher {
+  width: 15%;
+}
+
+.modify-image {
+  width: 25px;
+  height: 25px;
+}
+
+.delete-image {
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin-right: 30px;
+}

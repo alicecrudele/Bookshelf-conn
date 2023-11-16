@@ -1,0 +1,63 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.book {
+  margin-top: 20px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+ 
+}
+
+.author{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.genre {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.publisher {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.price {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 750px;
+}
+
+.description {
+  font-size: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.save {
+  width: 25px;
+  height: 25px;
+  margin-top: 150px;
+  margin-left: 800px;
+}
+
+.buy-button {
+  border-color: transparent;
+  height: 30px;
+  width: 100px;
+  font-family: Montserrat;
+  font-weight: bold;
+  background-color: lightblue;
+  margin-top: 10px;
+  width: 45%;
+}

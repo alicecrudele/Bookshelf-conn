@@ -1,0 +1,124 @@
+import { Injectable } from '@angular/core';
+import { formatDate, FormatWidth, getLocaleDateFormat } from '@angular/common';
+import * as $ from 'jquery';
+import { FormArray, FormGroup } from '@angular/forms';
+
+@Injectable()
+export class CommonHelper {
+
+  private loadingSubcriber: Array<any> = [];
+
+  constructor() { }
+
+  public buildQueryString(parameters: any) {
+    let qs = '';
+
+    if (parameters !== undefined) {
+      for (const key in parameters) {
+        if (qs === '') {
+          qs += '?' + key + '=' + encodeURIComponent(parameters[key]);
+        } else {
+          qs += '&' + key + '=' + encodeURIComponent(parameters[key]);
+        }
+      }
+    }
+
+    return qs;
+  }
+
+  public stringFormat(s: string, args: string[]): string {
+    for (var i = 0; i < args.length; i++) {
+      s = s.replace('{' + i + '}', args[i]);
+    }
+    return s;
+  }
+
+  public dateTimeReviver(key, value): any {
+    const dateRegex = new RegExp(/(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d([+-][0-2]\d:[0-5]\d|Z))/, 'g');
+    if (typeof value === 'string' && value.match(dateRegex)) {
+      return new Date(value);
+    }
+    return value;
+  }
+
+  public isEmptyOrSpaces(str) {
+    return str === null || str === undefined || str.match(/^ *$/) !== null;
+  }
+
+  public clone(object) {
+    return JSON.parse(JSON.stringify(object));
+  }
+
+  // return list of changed value in fields
+  public getChanges(oldObject, newObject, currentChangesList) {
+    if (newObject == null) {
+      return [];
+    }
+
+    const changedList = [];
+    const oldJsonObject = JSON.parse(JSON.stringify(oldObject));
+    const newJsonObject = JSON.parse(JSON.stringify(newObject));
+
+    const keys = Object.keys(newJsonObject);
+
+    for (const key in keys) {
+      const keyName = keys[key];
+
+      const oldJsonValue = oldJsonObject[keyName];
+      const newJsonValue = newJsonObject[keyName];
+
+      if (Object.prototype.toString.call(newJsonValue) === '[object Array]') {
+        for (const nestedKey in newJsonValue) {
+
+          const oldNestedObject = oldJsonObject[keyName][nestedKey];
+          const newNestedObject = newJsonObject[keyName][nestedKey];
+
+          if (oldNestedObject == undefined || newNestedObject == undefined) {
+            changedList.push(keyName);
+            continue;
+          }
+
+          const resultNestedList = this.getChanges(oldNestedObject, newNestedObject, changedList); // recursion
+
+          if (resultNestedList.length == 0) {
+            continue;
+          }
+
+          if (currentChangesList.find(c => c == keyName) || changedList.find(c => c == keyName)) {
+            continue;
+          }
+          else {
+            changedList.push(keyName);
+          }
+
+          // for (var resultNested in resultNestedList) {
+          //  //var value = resultNestedList[resultNested];
+          //  if (currentChangesList.find(c => c == keyName) || changedList.find(c => c == keyName))
+          //    continue;
+          //  else
+          //    changedList.push(keyName);
+          // }
+        }
+      } else if (Object.prototype.toString.call(newJsonValue) === '[object Object]') {
+
+        // Recursive in every Object parameter
+        const resultNestedList = this.getChanges(oldJsonValue, newJsonValue, changedList);
+        if (resultNestedList.length == 0) {
+          continue;
+        }
+
+        if (currentChangesList.find(c => c == keyName) || changedList.find(c => c == keyName)) {
+          continue;
+        }
+        else {
+          changedList.push(keyName);
+        }
+
+      } else if (oldJsonValue !== newJsonValue) {
+        changedList.push(keyName);
+      }
+    }
+
+    return changedList;
+  }
+}

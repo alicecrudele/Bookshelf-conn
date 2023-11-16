@@ -1,0 +1,65 @@
+.container {
+  position: center;
+  width: 500px;
+  height: 600px;
+  background-color:silver;
+  margin-left: 40%;
+  margin-top: 20px;
+  border-radius: 10px;
+
+  .image {
+    width: 100px;
+    height: 100px;
+    padding-top: 50px;
+    padding-left: 40%;
+  }
+
+  .username {
+    padding-top: 100px;
+  }
+
+  .input-user {
+    border-color: transparent;
+    margin-top: 10px;
+    width: 300px;
+    height: 30px;
+  }
+
+  .password {
+    padding-top: 50px;
+  }
+
+  .input-pass {
+    border-color: transparent;
+    margin-top: 10px;
+    width: 300px;
+    height: 30px;
+  }
+
+  .remember {
+    padding-top: 20px;
+  }
+
+  .bottons {
+    padding-top: 50px;
+
+
+    .login {
+      margin-left: 20px;
+      border-color: transparent;
+      height: 30px;
+      width: 100px;
+      font-family: Montserrat;
+      background-color: lightblue;
+    }
+
+    .cancel {
+      margin-right: 20px;
+      border-color: transparent;
+      height: 30px;
+      width: 100px;
+      font-family: Montserrat;
+      background-color: lightblue;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div>
+  <h1>All books</h1>
+  <button class="add-button" [routerLink]="['/managebook']">
+    <img src="../../../assets/images/add.svg" class="add-image" />
+    Add book
+  </button>
+</div>
+
+<div>
+  <table class="table">
+    <tr>
+      <th class="title">TITLE</th>
+      <th class="author">AUTHOR</th>
+      <th class="genre">GENRE</th>
+      <th class="price">PRICE</th>
+      <th class="publish-year">RELEASE YEAR</th>
+      <th class="publisher">PUBLISHER</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let book of gridData">
+      <!--mettere l'interpolation per i vari campi-->
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.price}}</td>
+      <td>{{book.publish_Year}}</td>
+      <td>{{book.publisher}}</td>
+      <td>
+        <img src="../../../assets/images/pen-to-square-regular.svg" class="modify-image" [routerLink]="['/bookdetail']" />
+        <img src="../../../assets/images/trash-solid.svg" class="delete-image" />
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<body>
+  <div class="container">
+    <!--Titolo-->
+    <div class="header">
+      <!--Nav-->
+      <div>
+        <nav></nav>
+
+        <div class="icon">
+          <!--utente-->
+          <div class="user">
+            <a [routerLink]="['/login']"><img src="../../../assets/images/user-solid.svg" /></a>
+          </div>
+          <!--salvati-->
+          <div class="saved">
+            <a><img src="../../../assets/images/heart-solid.svg" /></a>
+          </div>
+          <!--carrello-->
+          <!--<div class="cart">
+            <a><img src="../../../assets/images/cart-shopping-solid.svg" /></a>
+          </div>-->
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="title">
+          <h1>BOOKSHELF</h1>
+        </div>
+        <div class="searchbar">
+          <input type="text" placeholder="Search a book" class="search" />
+          <img src="../../../assets/images/magnifying-glass-solid.svg" class="search-icon" />
+        </div>
+      </div>
+    </div>
+
+    <!--Page-->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</body>
+</html>
