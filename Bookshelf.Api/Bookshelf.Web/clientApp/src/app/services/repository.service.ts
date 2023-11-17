@@ -33,7 +33,7 @@ export class RepositoryService {
   }
 
   public getBook<T>(id: number) {
-    return this.getWithLinkBase<T>(this.http, this.constantHelper.DATA_GET_BOOK + '/' + id, undefined);
+    return this.getWithLinkBase<T>(this.http, this.constantHelper.DATA_GET_BOOK + '/' + id, null);
   }
 
   public createBook<T>(data: T) {

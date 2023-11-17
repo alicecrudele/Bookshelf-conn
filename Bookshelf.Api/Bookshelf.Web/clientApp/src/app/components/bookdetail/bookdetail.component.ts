@@ -5,6 +5,7 @@ import { GridConstantsConfig } from '../../interfaces/gridColumn.interface';
 import { Router } from '@angular/router';
 import { RepositoryService } from '../../services/repository.service';
 import { CommonService } from '../../services/common.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'bookdetail',
@@ -12,19 +13,36 @@ import { CommonService } from '../../services/common.service';
   styleUrls: ['./bookdetail.component.scss']
 })
 export class BookdetailComponent {
+  formGroup: FormGroup;
+
   public gridData: Book[];
   public originalData: Book[];
   public constantsListener: Observable<GridConstantsConfig>;
 
 
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     private repositorySvc: RepositoryService,
-    private commonSvc: CommonService
+    private commonSvc: CommonService,
+
   ) {
 
     this.gridData = [];
 
+  }
+
+
+  setFormGroup(item: Book = undefined) {
+    this.formGroup = this.fb.group({
+      title: [{ value: item?.title, disabled: false }],
+      author: [{ value: item?.author, disabled: false }],
+      price: [{ value: item?.price, disabled: false }],
+      genre: [{ value: item?.genre, disabled: false }],
+      publish_Year: [{ value: item?.publish_Year, disabled: false }],
+      publisher: [{ value: item?.publisher, disabled: false }],
+      description: [{ value: item?.description, disabled: false }],
+    });
   }
 
 }

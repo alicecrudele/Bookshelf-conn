@@ -57,9 +57,6 @@ namespace Bookshelf.Api.Database.Repositories
             return result;
         }
 
-
-
-
         public BookDto GetBook(long id)
         {
             string query;
@@ -72,7 +69,6 @@ namespace Bookshelf.Api.Database.Repositories
                 connection.Close();
             }
             return result;
-
         }
 
         public long CreateBook(BookDto dto)

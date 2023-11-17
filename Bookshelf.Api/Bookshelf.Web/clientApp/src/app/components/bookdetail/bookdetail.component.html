@@ -1,47 +1,47 @@
 <div class="container">
   <div class="form">
-    <form>
+    <form [formGroup]="formGroup">
       <div class="book">
         <div>
           <label>
             <span class="title"> Title: </span>
-            <input />
+            <input type="text" formControlName="title" />
           </label>
         </div>
         <div>
           <label>
             <span class="text-style"> Author: </span>
-            <input />
+            <input type="text" formControlName="author" />
           </label>
         </div>
         <div>
           <label>
             <span class="text-style"> Genre: </span>
-            <input />
+            <input type="text" formControlName="genre" />
           </label>
         </div>
         <div>
           <label>
             <span class="text-style"> Publisher: </span>
-            <input />
+            <input type="text" formControlName="publisher" />
           </label>
         </div>
         <div>
           <label>
             <span class="text-style"> Year: </span>
-            <input />
+            <input type="number" formControlName="publish_Year" />
           </label>
         </div>
         <div>
           <label>
             <span class="text-style"> Price: </span>
-            <input />
+            <input type="number" formControlName="price" />
           </label>
         </div>
         <div>
           <label>
             <div class="description"> Description: </div>
-            <textarea></textarea>
+            <textarea type="text" formControlName="description" ></textarea>
           </label>
         </div>
 

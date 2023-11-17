@@ -103,7 +103,8 @@ namespace Bookshelf.Web.Services
                 using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
 
-                    //something
+                    //var bookRepo = new BookDtoRepository(_connectionConfig);
+                    //return bookRepo.GetBook();
 
                     scope.Complete();
                 }
