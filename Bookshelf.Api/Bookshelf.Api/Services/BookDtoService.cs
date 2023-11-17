@@ -75,7 +75,6 @@ namespace Bookshelf.Web.Services
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, ex.Message);
                 throw ex;
             }
         }
@@ -112,7 +111,6 @@ namespace Bookshelf.Web.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
                 throw ex;
             }
 
@@ -132,7 +130,6 @@ namespace Bookshelf.Web.Services
             }
             catch (Exception ex)
             {
-                //_logger.LogError(ex, ex.Message);
                 throw ex;
             }
 
@@ -151,7 +148,6 @@ namespace Bookshelf.Web.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
                 throw ex;
             }
 
@@ -170,7 +166,6 @@ namespace Bookshelf.Web.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, ex.Message);
                 throw ex;
             }
         }

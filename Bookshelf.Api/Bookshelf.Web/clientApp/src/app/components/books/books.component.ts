@@ -32,14 +32,6 @@ export class BooksComponent {
 
     this.gridData = [];
 
-
-    //Action buttons declarations
-    //this.actions = [
-    //  new ViewButtonAction(this.viewRequestButtonClick, this)
-    //];
-
-
-
     this.reloadData();
   }
 

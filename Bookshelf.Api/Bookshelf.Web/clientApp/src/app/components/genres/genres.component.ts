@@ -18,7 +18,6 @@ export class GenresComponent {
   public originalData: Book[];
   public constantsListener: Observable<GridConstantsConfig>;
 
-
   constructor(
     private router: Router,
     private repositorySvc: RepositoryService,

@@ -31,7 +31,7 @@ public class BookController : Controller
     /// <summary>
     ///     Chiamata per ottenere la lista dei libri in base al genere
     /// </summary>
-    [HttpGet("[action]")]
+    [HttpGet("[action]/{genre}")]
     public BookListDto GetBookGenreList()
     {
         return _bookDtoService.GetBookGenreList();
@@ -39,7 +39,7 @@ public class BookController : Controller
 
 
     /// <summary>
-    ///     Chiamata per ottenere un libro in base all'id
+    ///     Chiamata per ottenere il dettaglio del libro
     /// </summary>
     [HttpGet("[action]/{id}")]
     public BookDto GetBook([FromRoute] long id)
@@ -48,7 +48,7 @@ public class BookController : Controller
     }
 
     /// <summary>
-    ///     Creazione di un nuovo libro
+    ///     Creazione-aggiunta di un nuovo libro
     /// </summary>
     [HttpPost("[action]")]
     public void CreateBook(BookDto dto)
