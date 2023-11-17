@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonService } from './services/common.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { PopupModule } from '@progress/kendo-angular-popup';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -34,7 +36,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
     BooksComponent,
     GenresComponent,
     HomecontentComponent,
-    BookdetailComponent
+    BookdetailComponent,
+    ToastComponent
   ],
   imports: [
     HttpClientModule,
@@ -43,6 +46,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
     ReactiveFormsModule,
     FormsModule,
     GridModule,
+    PopupModule,
     RouterOutlet,
     RouterModule.forRoot([
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
