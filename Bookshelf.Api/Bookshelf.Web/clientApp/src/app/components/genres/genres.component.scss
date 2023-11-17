@@ -33,15 +33,15 @@ li a:hover:not(.active) {
   border-radius: 5px;
 }
 
-th{
-    width: 30px;
-    font-family: Montserrat;
+th {
+  width: 30px;
+  font-family: Montserrat;
+  color: skyblue;
 }
 
 td{
-    width: 20px;
-    font-family: Montserrat;
-
+  width: 20px;
+  font-family: Montserrat;
 }
 
 hr {
@@ -51,10 +51,11 @@ hr {
 .title {
   width: 20%;
   font-size: 18px;
+ 
 }
 
 .title-content{
-    text-align: left;
+   // text-align: left;
     margin-left: 40px;
 }
 
