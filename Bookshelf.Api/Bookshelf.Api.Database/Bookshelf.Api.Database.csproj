@@ -12,6 +12,7 @@
     <None Remove="Resources\Book\BookDto_SELECT_BY_ID.sql" />
     <None Remove="Resources\Book\BookDto_UPDATE_BY_ID.sql" />
     <None Remove="Resources\Book\BookListDto_SELECT.sql" />
+    <None Remove="Resources\Book\BookListDto_SELECT_BY_GENRE.sql" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,7 @@
     <EmbeddedResource Include="Resources\Book\BookDto_SELECT_BY_ID.sql" />
     <EmbeddedResource Include="Resources\Book\BookDto_UPDATE_BY_ID.sql" />
     <EmbeddedResource Include="Resources\Book\BookListDto_SELECT.sql" />
+    <EmbeddedResource Include="Resources\Book\BookListDto_SELECT_BY_GENRE.sql" />
   </ItemGroup>
 
   <ItemGroup>

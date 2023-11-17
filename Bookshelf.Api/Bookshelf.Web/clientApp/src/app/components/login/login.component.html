@@ -3,7 +3,7 @@
   <div class="image">
     <img src="../../assets/images/user-solid.svg" />
   </div>
-  <form>
+  <form [formGroup]="formGroup">
     <div class="username">
       <label>
         <div>Username:</div>
@@ -26,7 +26,7 @@
 
     <div class="bottons">
       <button class="cancel" type="submit">Cancel</button>
-      <button class="login" type="submit">Login</button>
+      <button class="login" type="submit" (click)="save()">Login</button>
     </div>
 
   </form>

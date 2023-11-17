@@ -7,6 +7,7 @@ import { RepositoryService } from '../../services/repository.service';
 import { CommonService } from '../../services/common.service';
 import { BookList } from '../../classes/book-list';
 
+
 @Component({
   selector: 'genres',
   templateUrl: './genres.component.html',

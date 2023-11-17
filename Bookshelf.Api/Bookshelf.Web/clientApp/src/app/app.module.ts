@@ -55,8 +55,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
       { path: 'savedbook', component: SavedbookComponent },
       {
         path: 'login',
-        //aggiungere le guards
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [CanActivateGuard]
       },
       { path: '**', redirectTo: '' }
     ])
@@ -67,6 +67,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
     RepositoryService,
     SessionService,
     CommonService,
+    CanActivateGuard
   ],
 
 })
