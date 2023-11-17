@@ -45,4 +45,7 @@ export class BookdetailComponent {
     });
   }
 
+  save() {
+    this.router.navigate(['/books']);
+  }
 }

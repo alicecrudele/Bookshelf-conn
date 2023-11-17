@@ -25,11 +25,11 @@ li a:hover:not(.active) {
   background-color: lightblue;
 }
 
-.table{
+.table {
   padding: 5px;
   margin-top: 20px;
   width: 100%;
-  background-color: lightblue;
+  background-color: #f5f5f5;
   border-radius: 5px;
 }
 
@@ -41,13 +41,21 @@ th{
 td{
     width: 20px;
     font-family: Montserrat;
+
 }
 
-.title{
-    width:20%;
+.title {
+  width: 20%;
+  font-size: 18px;
 }
-.author{
-    width: 20%;
+
+.title-content{
+    text-align: left;
+    margin-left: 40px;
+}
+
+.author {
+  width: 20%;
 }
 .genre{
     width: 15%;

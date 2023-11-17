@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepositoryService } from '../../services/repository.service';
 import { CommonHelper } from '../../helpers/common.helper';
-import { User } from '../../classes/User';
+import { User } from '../../classes/user';
 
 @Component({
   selector: 'login',
