@@ -1,1 +1,8 @@
-console.log("Hello World!")
+import { Injectable } from "@angular/core";
+
+@Injectable()
+export class ToastService {
+
+
+
+}
