@@ -31,7 +31,7 @@ public class BookController : Controller
     /// <summary>
     ///     Chiamata per ottenere la lista dei libri in base al genere
     /// </summary>
-    [HttpGet("[action]/{genre}")]
+    [HttpGet("[action]")]
     public BookListDto GetBookGenreList()
     {
         return _bookDtoService.GetBookGenreList();

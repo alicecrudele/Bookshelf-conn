@@ -45,8 +45,7 @@ export class LoginComponent {
     });
   }
 
-
   save() {
-    
+    this.router.navigate(['/books']);
   }
 }

@@ -49,9 +49,17 @@ import { GridModule } from '@progress/kendo-angular-grid';
       { path: 'home', component: HomeComponent },
       { path: 'welcome', component: HomecontentComponent},
       { path: 'books', component: BooksComponent },
-      { path: 'bookdetail', component: BookdetailComponent },
+      {
+        path: 'bookdetail',
+        component: BookdetailComponent,
+        canActivate: [CanActivateGuard]
+      },
       { path: 'genres', component: GenresComponent },
-      { path: 'managebook', component: ManagebookComponent },
+      {
+        path: 'managebook',
+        component: ManagebookComponent,
+        canActivate: [CanActivateGuard]
+      },
       { path: 'savedbook', component: SavedbookComponent },
       {
         path: 'login',

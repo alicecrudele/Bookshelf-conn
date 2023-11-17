@@ -141,7 +141,7 @@ namespace Bookshelf.Web.Services
             {
                 using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    
+                    //something
 
                     scope.Complete();
                 }
