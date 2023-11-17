@@ -3,7 +3,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { ManagebookComponent } from './components/managebook/managebook.component';
 import { LoginComponent } from './components/login/login.component';
-import { CartComponent } from './components/cart/cart.component';
 import { SavedbookComponent } from './components/savedbook/savedbook.component';
 import { BooksComponent } from './components/books/books.component';
 import { GenresComponent } from './components/genres/genres.component';
@@ -31,7 +30,6 @@ import { GridModule } from '@progress/kendo-angular-grid';
     HomeComponent,
     ManagebookComponent,
     LoginComponent,
-    CartComponent,
     SavedbookComponent,
     BooksComponent,
     GenresComponent,
@@ -54,7 +52,6 @@ import { GridModule } from '@progress/kendo-angular-grid';
       { path: 'bookdetail', component: BookdetailComponent },
       { path: 'genres', component: GenresComponent },
       { path: 'managebook', component: ManagebookComponent },
-      { path: 'cart', component: CartComponent },
       { path: 'savedbook', component: SavedbookComponent },
       {
         path: 'login',

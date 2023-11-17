@@ -43,14 +43,13 @@
       <th class="publish-year">RELEASE YEAR</th>
       <th class="publisher">PUBLISHER</th>
     </tr>
-    <tr>
-      <!--mettere l'interpolation per i vari campi-->
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>     
+    <tr *ngFor="let book of gridData">
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.price}} €</td>
+      <td>{{book.publish_Year}}</td>
+      <td>{{book.publisher}}</td>
     </tr>
   </table>
 </div>

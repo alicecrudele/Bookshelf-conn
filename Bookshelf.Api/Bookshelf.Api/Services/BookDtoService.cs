@@ -80,6 +80,21 @@ namespace Bookshelf.Web.Services
             }
         }
 
+
+        public BookListDto GetBookGenreList()
+        {
+            try
+            {
+                var bookRepo = new BookDtoRepository(_connectionConfig);
+                return bookRepo.GetBookGenreList();
+            }
+            catch (Exception ex) 
+            { 
+                throw ex;
+            }
+        }
+
+
         public BookDto GetBook(long id)
         {
             try

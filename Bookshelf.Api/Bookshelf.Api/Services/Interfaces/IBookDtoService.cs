@@ -6,7 +6,7 @@ namespace Bookshelf.Web.Services.Interfaces
     public interface IBookDtoService : IApplicationService
     {
         BookListDto GetBookList();
-
+        BookListDto GetBookGenreList();
         BookDto GetBook(long id);
         void CreateBook(BookDto dto);
         void UpdateBook(long id);

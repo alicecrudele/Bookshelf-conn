@@ -18,11 +18,10 @@
       <th></th>
     </tr>
     <tr *ngFor="let book of gridData">
-      <!--mettere l'interpolation per i vari campi-->
       <td>{{book.title}}</td>
       <td>{{book.author}}</td>
       <td>{{book.genre}}</td>
-      <td>{{book.price}}</td>
+      <td>{{book.price}} €</td>
       <td>{{book.publish_Year}}</td>
       <td>{{book.publisher}}</td>
       <td>

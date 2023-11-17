@@ -29,6 +29,16 @@ public class BookController : Controller
     }
 
     /// <summary>
+    ///     Chiamata per ottenere la lista dei libri in base al genere
+    /// </summary>
+    [HttpGet("[action]")]
+    public BookListDto GetBookGenreList()
+    {
+        return _bookDtoService.GetBookGenreList();
+    }
+
+
+    /// <summary>
     ///     Chiamata per ottenere un libro in base all'id
     /// </summary>
     [HttpGet("[action]/{id}")]

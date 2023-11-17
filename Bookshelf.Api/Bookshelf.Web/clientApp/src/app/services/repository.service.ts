@@ -48,63 +48,12 @@ export class RepositoryService {
     return this.deleteWithLinkBase<T>(this.http, this.constantHelper.DATA_DELETE_BOOK, undefined);
   }
 
-  //#endregion
-
-
-  //#region GENRE
-
-  public getGenre<T>() {
-    throw new Error('Method not implemented.');
-  }
-
-  public getFictionGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_FICTION_GENRE + '/' + genre, undefined);
-  }
-
-  public getMisteryGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_MISTERY_GENRE + '/' + genre, undefined);
-  }
-
-  public getThrillerGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_THRILLER_GENRE + '/' + genre, undefined);
-  }
-
-  public getHorrorGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_HORROR_GENRE + '/' + genre, undefined);
-  }
-
-  public getHistoricalGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_HISTORICAL_GENRE + '/' + genre, undefined);
-  }
-
-  public getRomanceGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_ROMANCE_GENRE + '/' + genre, undefined);
-  }
-
-  public getWesternGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_WESTERN_GENRE + '/' + genre, undefined);
-  }
-
-  public getScienceFictionGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_SCIENCE_FICTION_GENRE + '/' + genre, undefined);
-  }
-
-  public getFantasyGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_FANTASY_GENRE + '/' + genre, undefined);
-  }
-
-  public getPoetryGenre<T>(genre: string) {
-    return this.getWithLinkBase<Book[]>(this.http, this.constantHelper.DATA_GET_POETRY_GENRE + '/' + genre, undefined);
-  }
-  //#endregion
-
-  //#region CART
-
-  public getCartItems<T>() {
-    throw new Error('Method not implemented.');
+  public getBookGenreList<T>() {
+    return this.getWithLinkBase<T>(this.http, this.constantHelper.DATA_GET_BOOK_GENRE_LIST, null);
   }
 
   //#endregion
+
 
   //#region SAVED BOOK
 

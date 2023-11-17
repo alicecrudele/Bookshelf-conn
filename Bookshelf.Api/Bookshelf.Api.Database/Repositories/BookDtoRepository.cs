@@ -36,13 +36,29 @@ namespace Bookshelf.Api.Database.Repositories
             using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
             {
                 query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_LIST_DTO_SELECT}");
-                //query = "SELECT l.id, l.title, l.author, l.price, l.genre, l.publish_year, l.publisher, l.description FROM dbo.Libri AS l";
                 result.List = connection.Query<BookDto>(query).ToList();
 
                 connection.Close();
             }
             return result;
         }
+
+        public BookListDto GetBookGenreList()
+        {
+            string query;
+            BookListDto result = new BookListDto();
+            using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
+            {
+                query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_LIST_DTO_SELECT_BY_GENRE}");
+                result.List = connection.Query<BookDto>(query).ToList();
+
+                connection.Close();
+            }
+            return result;
+        }
+
+
+
 
         public BookDto GetBook(long id)
         {
