@@ -6,8 +6,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class CanActivateGuard implements CanActivate {
-  constructor(private repositorySvc: RepositoryService, private sessionSvc: SessionService, private router: Router) { }
-
+  
   canActivate() {
     console.log("CanActivateGuard");
     return true;
