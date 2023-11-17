@@ -16,26 +16,9 @@
  
 }
 
-.author{
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-.genre {
+.text-style {
   font-size: 20px;
   margin-top: 10px;
-}
-
-.publisher {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.price {
-  margin-top: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  margin-left: 750px;
 }
 
 .description {
@@ -44,10 +27,22 @@
   font-weight: bold;
 }
 
+input{
+    border-color: transparent;
+    float: right;
+    margin-right: 1105px;
+}
+
+textarea{
+    border-color: transparent;
+    width: 40%;
+    height: 200px;
+    margin-top: 10px;
+}
+
 .save {
   width: 25px;
   height: 25px;
-  margin-top: 150px;
   margin-left: 800px;
 }
 
