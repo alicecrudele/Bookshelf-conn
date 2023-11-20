@@ -34,7 +34,7 @@ export class BookdetailComponent {
 
   public loadData(item: Book)
   {
-    // caricare i dati nel form
+    // caricare i dati del libro all'interno degli input come se fossero dei placeholder
   }
 
 

@@ -71,9 +71,6 @@ export class ManagebookComponent  {
 
   save(e: any) {
     if (this.formGroup.invalid) {
-
-     
-
       const errors = this.commonHelper.showErrors(
         this.formGroup, ['error.required'],
         'book',
@@ -94,6 +91,7 @@ export class ManagebookComponent  {
     });
 
   }
+
 
   public cancel(data: any) {
     this.router.navigate(['/books']);

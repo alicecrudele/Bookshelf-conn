@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bookshelf.Web.Controllers;
 
 /// <summary>
-/// 
+///     Controller per la gestione dei libri
 /// </summary>
 /// <seealso cref="Controller" />
 
