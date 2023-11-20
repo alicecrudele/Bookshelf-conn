@@ -9,7 +9,6 @@ namespace Bookshelf.Api.Database.Mappers
     public class GenreDtoMapper
     {
 
-        //intanto book poi deve esere il genere
         public static BookDto MapToDto(Book genre)
         {
             return new BookDto

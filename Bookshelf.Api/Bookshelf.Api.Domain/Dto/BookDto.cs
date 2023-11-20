@@ -1,5 +1,4 @@
-﻿
-using Bookshelf.Api.Domain.Enums;
+﻿using Bookshelf.Api.Domain.Enums;
 
 namespace Bookshelf.Api.Domain.Dto
 {

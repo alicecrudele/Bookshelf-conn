@@ -85,6 +85,8 @@ namespace Bookshelf.Api.Database.Repositories
 
                     res = insertedId.Value;
                 }
+
+                connection.Close();
             }
 
             return res;
@@ -92,22 +94,22 @@ namespace Bookshelf.Api.Database.Repositories
 
         public void UpdateBook(long id, BookDto dto)
         {
-               throw new NotImplementedException();
+            using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
+            { 
+            
+                connection.Close();
+            }
+
         }
-
-        //se devo fare più cose insieme utilizzo anche il transaction 
-
-        //public BookDto Update(long requestId, IDbConnection connection, IDbTransaction tran)
-        //{
-        //    BookDto book = new BookDto();
-        //    string query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_LIST_DTO_SELECT}");
-        //    book = connection.Query<BookDto>(query, new { RequestId = requestId }, tran).FirstOrDefault();
-        //    return book;
-        //}
 
         public void DeleteBook(long id, BookDto dto)
         {
-               throw new NotImplementedException();
+            using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
+            {
+
+                connection.Close();
+            }
+
         }
     }
 }

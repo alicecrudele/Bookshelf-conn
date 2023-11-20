@@ -75,23 +75,19 @@ export class RepositoryService {
 
   //#region BASE
 
-  private getWithLinkBase<T>(http: HttpClient, link: string, parameters: any, hideSpinner: boolean = false) {
+  private getWithLinkBase<T>(http: HttpClient, link: string, parameters: any) {
     return http.get<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions).toPromise();
   }
 
-  private putWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any, hideSpinner: boolean = false) {
+  private putWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any) {
     return http.put<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions);
   }
 
-  private postWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any, hideSpinner: boolean = false) {
+  private postWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any) {
     return http.post<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions).toPromise();
   }
 
-  private uploadWithLinkBase<T>(http: HttpClient, link: string, data: FormData, parameters: any, hideSpinner: boolean = false) {
-    return http.post(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions);
-  }
-
-  private deleteWithLinkBase<T>(http: HttpClient, link: string, parameters: any, hideSpinner: boolean = false) {
+  private deleteWithLinkBase<T>(http: HttpClient, link: string, parameters: any) {
     return http.delete(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions).toPromise();
   }
 

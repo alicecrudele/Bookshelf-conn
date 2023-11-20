@@ -38,7 +38,6 @@ public class BookController : Controller
         return _bookDtoService.GetBookGenreList();
     }
 
-
     /// <summary>
     ///     Chiamata per ottenere il dettaglio del libro
     /// </summary>
@@ -52,7 +51,7 @@ public class BookController : Controller
     ///     Creazione-aggiunta di un nuovo libro
     /// </summary>
     [HttpPost("[action]")]
-    public void CreateBook( BookDto dto)
+    public void CreateBook(BookDto dto)
     {
         _bookDtoService.CreateBook(dto);
     }

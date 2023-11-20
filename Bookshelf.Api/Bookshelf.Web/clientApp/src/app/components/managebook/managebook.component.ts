@@ -65,15 +65,6 @@ export class ManagebookComponent  {
     });
   }
 
-  showForm() {
-    this.show = !this.show;
-    if (this.show) {
-      this.buttonName = "Hide";
-    } else {
-      this.buttonName = "Show";
-    }
-  }
-
   save(e: any) {
     if (this.formGroup.invalid) {
       //const errors = this.commonHelper.showErrors(
