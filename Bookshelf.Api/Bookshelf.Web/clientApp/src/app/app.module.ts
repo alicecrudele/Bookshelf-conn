@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { ToastComponent } from './components/toast/toast.component';
+import { SearchinputComponent } from './components/searchinput/searchinput.component';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -37,7 +38,8 @@ import { ToastComponent } from './components/toast/toast.component';
     GenresComponent,
     HomecontentComponent,
     BookdetailComponent,
-    ToastComponent
+    ToastComponent,
+    SearchinputComponent
   ],
   imports: [
     HttpClientModule,
