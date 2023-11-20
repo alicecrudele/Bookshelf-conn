@@ -19,7 +19,7 @@
     </tr>
     <hr />
     <tr *ngFor="let book of gridData">
-      <td>{{book.title}}</td>
+      <td [routerLink]="['/bookdetail']">{{book.title}}</td>
       <td>{{book.author}}</td>
       <td>{{book.genre}}</td>
       <td>{{book.price}} €</td>
@@ -27,7 +27,7 @@
       <td>{{book.publisher}}</td>
       <td>
         <img src="../../../assets/images/pen-to-square-regular.svg" class="modify-image" [routerLink]="['/bookdetail']" />
-        <img src="../../../assets/images/trash-solid.svg" class="delete-image" />
+        <img src="../../../assets/images/trash-solid.svg" (click)="delete()" class="delete-image" />
       </td>
     </tr>
   </table>

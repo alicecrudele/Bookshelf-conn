@@ -35,14 +35,34 @@ export class BooksComponent {
     this.reloadData();
   }
 
-
-
+  // Get the list of books
   private reloadData() {
     this.repositorySvc.getBookList<BookList>().then(
       result => {
         this.originalData = result.list;
         this.gridData = result.list;
         console.log("LIST", result.list)
+      },
+      error => {
+        console.error(error)
+      }
+    );
+  }
+
+  // Create a new book -> in managebook component
+
+
+  // Update a book -> in bookdetail component
+
+
+
+
+
+  // Delete a single book from the list
+  public delete(id: number) {
+    this.repositorySvc.deleteBook(id, Book).then(
+      result => {
+        this.reloadData();
       },
       error => {
         console.error(error)

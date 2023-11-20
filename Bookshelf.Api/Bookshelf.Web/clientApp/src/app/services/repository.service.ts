@@ -37,28 +37,19 @@ export class RepositoryService {
   }
 
   public createBook<T>(data: T) {
-    return this.postWithLinkBase<T>(this.http, this.constantHelper.DATA_CREATE_BOOK, data, undefined);
+    return this.postWithLinkBase<T>(this.http, this.constantHelper.DATA_CREATE_BOOK, data, null);
   }
 
   public updateBook<T>(id:number, data: T) {
     return this.putWithLinkBase<T>(this.http, this.constantHelper.DATA_UPDATE_BOOK + '/' + id, undefined, undefined);
   }
 
-  public deleteBook<T>(data: T) {
-    return this.deleteWithLinkBase<T>(this.http, this.constantHelper.DATA_DELETE_BOOK, undefined);
+  public deleteBook<T>(id:number, data: T) {
+    return this.deleteWithLinkBase<T>(this.http, this.constantHelper.DATA_DELETE_BOOK + '/' + id, null);
   }
 
   public getBookGenreList<T>() {
     return this.getWithLinkBase<T>(this.http, this.constantHelper.DATA_GET_BOOK_GENRE_LIST, null);
-  }
-
-  //#endregion
-
-
-  //#region SAVED BOOK
-
-  public getSavedBooks<T>() {
-    throw new Error('Method not implemented.');
   }
 
   //#endregion
@@ -101,7 +92,7 @@ export class RepositoryService {
   }
 
   private deleteWithLinkBase<T>(http: HttpClient, link: string, parameters: any, hideSpinner: boolean = false) {
-    return http.delete(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions);
+    return http.delete(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions).toPromise();
   }
 
   //#endregion
