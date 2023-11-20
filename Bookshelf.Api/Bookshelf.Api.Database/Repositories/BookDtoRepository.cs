@@ -95,8 +95,10 @@ namespace Bookshelf.Api.Database.Repositories
         public void UpdateBook(long id, BookDto dto)
         {
             using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
-            { 
-            
+            {
+
+                var query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_UPDATE_BY_ID}");
+
                 connection.Close();
             }
 
@@ -106,6 +108,8 @@ namespace Bookshelf.Api.Database.Repositories
         {
             using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
             {
+
+                var query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_DELETE_BY_ID}");
 
                 connection.Close();
             }
