@@ -1,4 +1,3 @@
-
 <div class="genre-nav">
   <ul>
     <li>
@@ -36,16 +35,8 @@
 
 
 
-
-
-
-
 <div>
   <!--<h2>Here you can see all the book we have</h2>-->
-  <button class="add-button" [routerLink]="['/managebook']">
-    <img src="../../../assets/images/add.svg" class="add-image" />
-    Add book
-  </button>
 </div>
 
 <div>
@@ -57,7 +48,14 @@
       <th class="price">PRICE</th>
       <th class="publish-year">RELEASE YEAR</th>
       <th class="publisher">PUBLISHER</th>
-      <th></th>
+      <th>
+
+        <button class="add-button" [routerLink]="['/managebook']">
+          <img src="../../../assets/images/add.svg" class="add-image" />
+          Add book
+        </button>
+
+      </th>
     </tr>
     <hr />
     <tr *ngFor="let book of gridData">
