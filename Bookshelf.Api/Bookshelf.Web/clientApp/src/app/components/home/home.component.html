@@ -28,10 +28,17 @@
         <div class="title">
           <h1>BOOKSHELF</h1>
         </div>
+
+        <!--Searchbar-->
         <div class="searchbar">
-          <input type="text" placeholder="Search a book" class="search" />
-          <img src="../../../assets/images/magnifying-glass-solid.svg" class="search-icon" />
+
+          <input type="text" placeholder="Search a book" class="search" #filter />
+
+
+          <!--Button for search-->
+          <button class="search-button" type="button" (click)="filterResult()"><img src="../../../assets/images/magnifying-glass-solid.svg" class="search-icon" /> </button> 
         </div>
+
       </div>
     </div>
 

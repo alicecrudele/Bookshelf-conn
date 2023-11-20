@@ -32,6 +32,12 @@ export class BookdetailComponent {
 
   }
 
+  public loadData(item: Book)
+  {
+    // caricare i dati nel form
+  }
+
+
 
   setFormGroup(item: Book = undefined) {
     this.formGroup = this.fb.group({
@@ -47,5 +53,7 @@ export class BookdetailComponent {
 
   save() {
     this.router.navigate(['/books']);
+
+    // fare come nella create, cliccando salva mi aggiorna i dati nella tabella dei libri e nel db
   }
 }
