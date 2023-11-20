@@ -8,7 +8,7 @@ import { BooksComponent } from './components/books/books.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { HomecontentComponent } from './components/homecontent/homecontent.component';
 import { BookdetailComponent } from './components/bookdetail/bookdetail.component';
-import { NgModule } from '@angular/core';
+import { ElementRef, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonService } from './services/common.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
-import { PopupModule } from '@progress/kendo-angular-popup';
+import { POPUP_CONTAINER, PopupModule } from '@progress/kendo-angular-popup';
 import { ToastComponent } from './components/toast/toast.component';
 import { SearchinputComponent } from './components/searchinput/searchinput.component';
 
@@ -81,7 +81,14 @@ import { SearchinputComponent } from './components/searchinput/searchinput.compo
     RepositoryService,
     SessionService,
     CommonService,
-    CanActivateGuard
+    CanActivateGuard,
+    {
+      provide: POPUP_CONTAINER,
+      useFactory: () => {
+        // return the container ElementRef, where the popup will be injected
+        return { nativeElement: document.getElementById("toast-popup-container") } as ElementRef;
+      }
+    },
   ],
 
 })

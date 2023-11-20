@@ -1,4 +1,5 @@
 using Bookshelf.Api.Domain.Dto;
+using Bookshelf.Api.ModelBinders;
 using Bookshelf.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,7 +52,7 @@ public class BookController : Controller
     ///     Creazione-aggiunta di un nuovo libro
     /// </summary>
     [HttpPost("[action]")]
-    public void CreateBook(BookDto dto)
+    public void CreateBook( BookDto dto)
     {
         _bookDtoService.CreateBook(dto);
     }

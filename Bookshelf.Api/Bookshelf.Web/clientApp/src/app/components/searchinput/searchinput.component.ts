@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '
 import { debounceTime, distinctUntilChanged, filter, fromEvent, map } from 'rxjs';
 
 @Component({
-  selector: 'searchinput',
+  selector: 'search-input',
   templateUrl: './searchinput.component.html',
   styleUrls: ['./searchinput.component.scss']
 })
