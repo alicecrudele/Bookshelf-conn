@@ -1,5 +1,4 @@
 using Bookshelf.Api.Domain.Dto;
-using Bookshelf.Api.ModelBinders;
 using Bookshelf.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

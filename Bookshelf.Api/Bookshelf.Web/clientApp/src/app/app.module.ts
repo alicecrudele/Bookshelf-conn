@@ -24,6 +24,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { POPUP_CONTAINER, PopupModule } from '@progress/kendo-angular-popup';
 import { ToastComponent } from './components/toast/toast.component';
 import { SearchinputComponent } from './components/searchinput/searchinput.component';
+import { ToastService } from './services/toast.service';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -82,6 +83,7 @@ import { SearchinputComponent } from './components/searchinput/searchinput.compo
     SessionService,
     CommonService,
     CanActivateGuard,
+    ToastService,
     {
       provide: POPUP_CONTAINER,
       useFactory: () => {

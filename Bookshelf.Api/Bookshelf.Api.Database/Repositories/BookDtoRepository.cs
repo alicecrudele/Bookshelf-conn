@@ -81,6 +81,7 @@ namespace Bookshelf.Api.Database.Repositories
                     long? insertedId;
                     var query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_INSERT}");
                     insertedId = connection.QuerySingle<long>(query, dto, tran);
+                    
                     tran.Commit();
 
                     res = insertedId.Value;

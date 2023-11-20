@@ -121,4 +121,84 @@ export class CommonHelper {
 
     return changedList;
   }
+
+
+  public showErrors(
+    formGroup: FormGroup,
+    resources: string[],
+    labelPrefix: string,
+    labelFunction: (label: string) => string,
+    appLanguageCode: string = 'en-US'
+  ): string[] {
+    const validationErrors = [];
+
+    if (formGroup.errors) {
+      for (const err of Object.keys(formGroup.errors)) {
+        const resourceKey = resources.find((r) => r == 'error.' + err.toLowerCase());
+        if (resourceKey) {
+          const req = labelFunction(resourceKey);
+          let errorParam = null;
+          switch (err) {
+            case 'min':
+              errorParam = formGroup.errors[err].min;
+              break;
+            case 'max':
+              errorParam = formGroup.errors[err].max;
+              break;
+          }
+
+          validationErrors.push(this.stringFormat(req, [labelFunction(`${labelPrefix}.form`), errorParam]));
+        } else {
+          validationErrors.push(labelFunction(`${labelPrefix}.form${err.substring(0, 1).toUpperCase()}${err.substring(1)}`));
+        }
+      }
+    }
+
+    for (const control of Object.keys(formGroup.controls)) {
+      const formControl = formGroup.get(control);
+      if (!formControl.valid && !formControl.disabled) {
+        if (formControl instanceof FormGroup || formControl instanceof FormArray) {
+          validationErrors.push(...this.showErrors(formControl as FormGroup, resources, labelPrefix, labelFunction));
+        } else {
+          for (const err of Object.keys(formControl.errors)) {
+            const resourceKey = resources.find((r) => r == 'error.' + err.toLowerCase());
+            if (resourceKey) {
+              const req = labelFunction(resourceKey);
+              let errorParam = null;
+              switch (err) {
+                case 'min':
+                  errorParam = formControl.errors[err].min;
+                  break;
+                case 'max':
+                  errorParam = formControl.errors[err].max;
+                  break;
+              }
+              if (errorParam instanceof Date) {
+                const format = getLocaleDateFormat(appLanguageCode, FormatWidth.Short);
+                errorParam = formatDate(errorParam, format, appLanguageCode);
+              }
+
+              validationErrors.push(this.stringFormat(req, [labelFunction(`${labelPrefix}.${control}`), errorParam]));
+            } else {
+              validationErrors.push(labelFunction(`${labelPrefix}.${control}${err.substring(0, 1).toUpperCase()}${err.substring(1)}`));
+            }
+          }
+        }
+      }
+    }
+
+    return validationErrors;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 }

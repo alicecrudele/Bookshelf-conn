@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ResourceService } from '../../services/resource.service';
 import { RepositoryService } from '../../services/repository.service';
 import { CommonHelper } from '../../helpers/common.helper';
+import { ToastType } from '../../classes/toastMessage';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'managebook',
@@ -19,12 +21,14 @@ export class ManagebookComponent  {
   formGroup: FormGroup | undefined;
   public book: Book | undefined;
   private bookId: number | undefined;
+    resourceSvc: any;
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private repositorySvc: RepositoryService,
-    private commonHelper: CommonHelper
+    private commonHelper: CommonHelper,
+    private toastSvc: ToastService
   ) {
       this.route.params.subscribe(params => {
         if (params) {
@@ -67,13 +71,16 @@ export class ManagebookComponent  {
 
   save(e: any) {
     if (this.formGroup.invalid) {
-      //const errors = this.commonHelper.showErrors(
-      //  this.formGroup, ['error.required'],
-      //  'machine',
-      //  (label) => {
-      //    return this.resourceSvc.getLabel(label);
-      //  });
-      //errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
+
+     
+
+      const errors = this.commonHelper.showErrors(
+        this.formGroup, ['error.required'],
+        'book',
+        (label) => {
+          return this.resourceSvc.getlabel(label);
+        });
+      errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
       return;
     }
 
