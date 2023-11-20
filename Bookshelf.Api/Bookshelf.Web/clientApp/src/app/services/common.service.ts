@@ -27,7 +27,7 @@ export class CommonService {
   //  );
   //}
 
-  //public initializeLabels() {
+  public initializeLabels() {
   //  let defer: Promise<any>;
   //  defer = new Promise<void>((resolve, reject) => {
   //    if (this.sessionSvc.hasLabels()) {
@@ -45,7 +45,7 @@ export class CommonService {
   //    }
   //  });
   //  return defer;
-  //}
+  }
 
   //public setGridFilterSelected(value: FilterType) {
   //  this.gridFilterSelected = value;

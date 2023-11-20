@@ -21,5 +21,12 @@ export class ConstantHelper {
   //#endregion
 
 
+  //#region TOAST
+  LBL_TOAST_ERROR = 'toast.error';                                                       // Error
+  LBL_TOAST_WARNING = 'toast.warning';                                                   // Warning
+  LBL_TOAST_INFO = 'toast.info';                                                         // Info
+
+  //#endregion
+
 
 }
