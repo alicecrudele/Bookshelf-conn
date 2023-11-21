@@ -143,9 +143,11 @@ namespace Bookshelf.Web.Services
             {
                 using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    //something
+                    //var bookRepo = new BookDtoRepository(_connectionConfig);
+                    //bookRepo.UpdateBook(id);
 
-                    scope.Complete();
+                    //scope.Complete();
+                    //return;
                 }
             }
             catch (Exception ex)

@@ -40,10 +40,15 @@ export class LoginComponent {
 
   setFormGroup(item: User = undefined) {
     this.formGroup = this.fb.group({
-      username: [{ value: item?.username, disabled: false }, [Validators.required]],
+      username: [{ value: item?.username, disabled: false }, [Validators.required, Validators.email]],
       password: [{ value: item?.password, disabled: false }, [Validators.required]],
     });
   }
+
+  cancel() {
+    this.router.navigate(['/books']);
+  }
+
 
   save() {
     this.router.navigate(['/books']);

@@ -95,7 +95,6 @@ namespace Bookshelf.Api.Database.Repositories
                     //},
                     //
                     
-
                     tran.Commit();
 
                     res = insertedId.Value;

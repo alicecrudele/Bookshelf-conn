@@ -10,14 +10,14 @@
         <label>
           <span>Username:</span>
           <br />
-          <input type="text" placeholder="Enter username..." formControlName="username" class="input-user" />
+          <input type="text" placeholder="Enter username..." formControlName="username" class="input-user" required />
         </label>
       </div>
       <div class="password">
         <label>
           <span>Password:</span>
           <br />
-          <input type="password" placeholder="Enter password..." formControlName="password" class="input-pass" />
+          <input type="password" placeholder="Enter password..." formControlName="password" class="input-pass" required />
         </label>
       </div>
       <div class="remember">
@@ -26,7 +26,7 @@
         </label>
       </div>
       <div class="bottons">
-        <button class="cancel" type="submit">Cancel</button>
+        <button class="cancel" type="submit" (click)="cancel()">Cancel</button>
         <button class="login" type="submit" (click)="save()">Login</button>
       </div>
     </form>

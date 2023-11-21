@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Book } from '../../classes/book';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResourceService } from '../../services/resource.service';
@@ -17,7 +17,6 @@ export class ManagebookComponent  {
 
   public show: boolean = false;
   public buttonName: any = 'Show';
-  public genreData: Array<string> = ['Fiction', 'Mystery'];
 
   formGroup: FormGroup | undefined;
   public book: Book | undefined;
@@ -60,13 +59,13 @@ export class ManagebookComponent  {
   setFormGroup(item: Book = undefined) {
     this.formGroup = this.fb.group({
       id: [{ value: item?.id, disabled: false }],
-      title: [{ value: item?.title, disabled: false }],
-      author: [{ value: item?.author, disabled: false }],
-      price: [{ value: item?.price, disabled: false }],
-      genre: [{ value: item?.genre, disabled: false }],
-      publish_Year: [{ value: item?.publish_Year, disabled: false }],
-      publisher: [{ value: item?.publisher, disabled: false }],
-      description: [{ value: item?.description, disabled: false }],
+      title: [{ value: item?.title, disabled: false }, [Validators.required]],
+      author: [{ value: item?.author, disabled: false }, [Validators.required]],
+      price: [{ value: item?.price, disabled: false }, [Validators.required]],
+      genre: [{ value: item?.genre, disabled: false }, [Validators.required]],
+      publish_Year: [{ value: item?.publish_Year, disabled: false }, [Validators.required]],
+      publisher: [{ value: item?.publisher, disabled: false }, [Validators.required]],
+      description: [{ value: item?.description, disabled: false }, [Validators.required]],
     });
   }
 
