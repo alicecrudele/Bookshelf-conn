@@ -29,6 +29,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { EnumToDescriptionPipe } from './pipes/enum.pipe';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -44,7 +45,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
     HomecontentComponent,
     BookdetailComponent,
     ToastComponent,
-    SearchinputComponent
+    SearchinputComponent,
+    EnumToDescriptionPipe
   ],
   imports: [
     HttpClientModule,
@@ -103,6 +105,7 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
     CommonService,
     CanActivateGuard,
     ToastService,
+    EnumToDescriptionPipe,
     {
       provide: POPUP_CONTAINER,
       useFactory: () => {
@@ -111,6 +114,8 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
       }
     },
   ],
-
+  exports: [
+    EnumToDescriptionPipe,
+  ],
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RepositoryService } from '../../services/repository.service';
 import { CommonHelper } from '../../helpers/common.helper';
@@ -40,8 +40,8 @@ export class LoginComponent {
 
   setFormGroup(item: User = undefined) {
     this.formGroup = this.fb.group({
-      username: [{ value: item?.username, disabled: false }],
-      password: [{ value: item?.password, disabled: false }],
+      username: [{ value: item?.username, disabled: false }, [Validators.required]],
+      password: [{ value: item?.password, disabled: false }, [Validators.required]],
     });
   }
 

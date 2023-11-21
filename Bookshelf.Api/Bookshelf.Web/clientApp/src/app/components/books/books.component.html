@@ -62,11 +62,11 @@
       </th>
     </tr>
     <hr />
-    <tr *ngFor="let book of gridData" (click)="viewEditButtonClick(book, this)" >
-      <td>{{book.title}}</td>
+    <tr *ngFor="let book of gridData" (click)="viewEditButtonClick(book, this)" class="book">
+      <td><b>{{book.title}}</b></td>
       <td>{{book.author}}</td>
-      <td>{{book.genre}}</td>
-      <td>{{book.price}} €</td>
+      <td>{{book.genre | enumToDescription}}</td>
+      <td>{{book.price | currency}}</td>
       <td>{{book.publish_Year}}</td>
       <td>{{book.publisher}}</td>
       <td>
