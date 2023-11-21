@@ -83,15 +83,18 @@ namespace Bookshelf.Api.Database.Repositories
                 {
                     long? insertedId;
                     var query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_INSERT}");
-                    insertedId = connection.QuerySingle<long>(query, param: new { 
-                        Title = dto.Title, 
-                        Author = dto.Author, 
-                        Price = dto.Price, 
-                        Genre = dto.Genre, 
-                        Publish_year = dto.Publish_Year,
-                        Publisher = dto.Publisher,
-                        Description = dto.Description
-                    }, tran);
+                    insertedId = connection.QuerySingle<long>(query, param: dto, transaction: tran);
+                    //{ 
+                    //    Title = dto.Title, 
+                    //    Author = dto.Author, 
+                    //    Price = dto.Price, 
+                    //    Genre = dto.Genre, 
+                    //    Publish_year = dto.Publish_Year,
+                    //    Publisher = dto.Publisher,
+                    //    Description = dto.Description
+                    //},
+                    //
+                    
 
                     tran.Commit();
 

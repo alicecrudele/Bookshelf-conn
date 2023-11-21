@@ -17,6 +17,7 @@ export class ManagebookComponent  {
 
   public show: boolean = false;
   public buttonName: any = 'Show';
+  public genreData: Array<string> = ['Fiction', 'Mystery'];
 
   formGroup: FormGroup | undefined;
   public book: Book | undefined;
@@ -81,10 +82,10 @@ export class ManagebookComponent  {
       return;
     }
 
-    const formData = new FormData();
-    formData.append("dto", JSON.stringify(this.formGroup.value));
+    //const formData = new Book();
+    //formData.append("dto", JSON.stringify(this.formGroup.value));
 
-    this.repositorySvc.createBook<FormData>(formData).then(res => {
+    this.repositorySvc.createBook<Book>(this.book).subscribe(res => {
       this.router.navigate(['/books']);
     }, error => {
       console.log(error);

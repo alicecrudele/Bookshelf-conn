@@ -48,7 +48,7 @@ export class BookdetailComponent {
   
   public loadData()
   {
-    this.repositorySvc.getBook<Book>(this.bookId).then(res => {
+    this.repositorySvc.getBook<Book>(this.bookId).subscribe(res => {
       console.log('RES: ', res);
       this.book = res;
       this.setFormGroup(res);
@@ -88,12 +88,12 @@ export class BookdetailComponent {
 
 
     if (this.book == null) {
-      this.repositorySvc.createBook<FormData>(formData).then(res => {
+      this.repositorySvc.createBook<FormData>(formData).subscribe(res => {
       }, error => {
         console.log(error);
       });
     } else {
-      this.repositorySvc.updateBook<FormData>(this.book.id, formData).then(res => {
+      this.repositorySvc.updateBook<FormData>(this.book.id, formData).subscribe(res => {
       }, error => {
         console.log(error);
       });

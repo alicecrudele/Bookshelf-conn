@@ -38,7 +38,7 @@ export class BooksComponent {
 
   // Get the list of books
   private reloadData() {
-    this.repositorySvc.getBookList<BookList>().then(
+    this.repositorySvc.getBookList<BookList>().subscribe(
       result => {
         this.originalData = result.list;
         this.gridData = result.list;
@@ -61,11 +61,19 @@ export class BooksComponent {
 
   // Delete a single book from the list
   public delete(book: Book) {
-    this.repositorySvc.deleteBook(book.id, Book).then(
-      result => {
+    this.repositorySvc.deleteBook(book.id, Book).subscribe(
+      //result => {
+      //  this.reloadData();
+      //},
+      //error => {
+      //  console.error(error)
+      //}
+
+      () => {
         this.reloadData();
       },
-      error => {
+
+      (error) => {
         console.error(error)
       }
     );

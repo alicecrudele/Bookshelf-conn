@@ -50,7 +50,7 @@ public class BookController : Controller
     ///     Creazione-aggiunta di un nuovo libro
     /// </summary>
     [HttpPost("[action]")]
-    public void CreateBook(BookDto dto)
+    public void CreateBook([FromBody] BookDto dto)
     {
         _bookDtoService.CreateBook(dto);
     }

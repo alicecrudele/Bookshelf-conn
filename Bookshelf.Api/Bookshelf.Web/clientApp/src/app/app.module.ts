@@ -17,7 +17,7 @@ import { ConstantHelper } from './helpers/constant.helper';
 import { RepositoryService } from './services/repository.service';
 import { SessionService } from './services/session.service';
 import { CanActivateGuard } from './guards/canactivate.guard.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { CommonService } from './services/common.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
@@ -25,6 +25,10 @@ import { POPUP_CONTAINER, PopupModule } from '@progress/kendo-angular-popup';
 import { ToastComponent } from './components/toast/toast.component';
 import { SearchinputComponent } from './components/searchinput/searchinput.component';
 import { ToastService } from './services/toast.service';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -44,10 +48,15 @@ import { ToastService } from './services/toast.service';
   ],
   imports: [
     HttpClientModule,
+    HttpClientJsonpModule,
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    DropDownsModule,
+    LabelModule,
+    InputsModule,
+    ButtonsModule,
     GridModule,
     PopupModule,
     RouterOutlet,

@@ -76,19 +76,19 @@ export class RepositoryService {
   //#region BASE
 
   private getWithLinkBase<T>(http: HttpClient, link: string, parameters: any) {
-    return http.get<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions).toPromise();
+    return http.get<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions);
   }
 
   private putWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any) {
-    return http.put<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions).toPromise();
+    return http.put<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions);
   }
 
   private postWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any) {
-    return http.post<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions).toPromise();
+    return http.post<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions);
   }
 
   private deleteWithLinkBase<T>(http: HttpClient, link: string, parameters: any) {
-    return http.delete(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions).toPromise();
+    return http.delete(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), httpOptions);
   }
 
   //#endregion

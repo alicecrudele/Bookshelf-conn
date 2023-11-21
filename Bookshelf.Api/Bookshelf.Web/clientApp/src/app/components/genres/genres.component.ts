@@ -31,13 +31,13 @@ export class GenresComponent {
   }
 
   private reloadData() {
-    this.repositorySvc.getBookList<BookList>().then(
-      result => {
+    this.repositorySvc.getBookList<BookList>().subscribe(
+      (result) => {
         this.originalData = result.list;
         this.gridData = result.list;
         console.log("LIST", result.list)
       },
-      error => {
+      (error) => {
         console.error(error)
       }
     );
