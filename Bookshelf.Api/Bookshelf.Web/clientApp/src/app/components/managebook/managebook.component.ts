@@ -84,9 +84,6 @@ export class ManagebookComponent  {
       return;
     }
 
-    //const formData = new Book();
-    //formData.append("dto", JSON.stringify(this.formGroup.value));
-
     this.repositorySvc.createBook<Book>(this.book).subscribe(res => {
       this.router.navigate(['/books']);
     }, error => {

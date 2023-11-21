@@ -73,12 +73,14 @@ import { EnumToDescriptionPipe } from './pipes/enum.pipe';
           {
             path: ':id',
             component: BookdetailComponent,
-            canActivate: [CanActivateGuard]
+            canActivate: [CanActivateGuard],
+            runGuardsAndResolvers: 'always'
           },
           {
             path: '',
             component: BookdetailComponent,
-            canActivate: [CanActivateGuard]
+            canActivate: [CanActivateGuard],
+            runGuardsAndResolvers: 'always'
           }
         ]
       },
@@ -86,13 +88,15 @@ import { EnumToDescriptionPipe } from './pipes/enum.pipe';
       {
         path: 'managebook',
         component: ManagebookComponent,
-        canActivate: [CanActivateGuard]
+        canActivate: [CanActivateGuard],
+        runGuardsAndResolvers: 'always'
       },
       { path: 'savedbook', component: SavedbookComponent },
       {
         path: 'login',
         component: LoginComponent,
-        canActivate: [CanActivateGuard]
+        canActivate: [CanActivateGuard],
+        runGuardsAndResolvers: 'always'
       },
       { path: '**', redirectTo: '' }
     ])
