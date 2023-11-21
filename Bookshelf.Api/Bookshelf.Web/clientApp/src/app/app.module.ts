@@ -63,7 +63,7 @@ import { EnumToDescriptionPipe } from './pipes/enum.pipe';
     PopupModule,
     RouterOutlet,
     RouterModule.forRoot([
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'welcome', component: HomecontentComponent},
       { path: 'books', component: BooksComponent },

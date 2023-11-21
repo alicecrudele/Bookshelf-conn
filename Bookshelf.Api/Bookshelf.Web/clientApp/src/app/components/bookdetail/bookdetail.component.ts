@@ -64,7 +64,7 @@ export class BookdetailComponent {
 
   setFormGroup(item: Book = undefined) {
     this.formGroup = this.fb.group({
-      title: [{ value: item?.title, disabled: false }, [Validators.required]],
+      titleBook: [{ value: item?.title, disabled: false }, [Validators.required]],
       author: [{ value: item?.author, disabled: false }, [Validators.required]],
       price: [{ value: item?.price, disabled: false }, [Validators.required]],
       genre: [{ value: item?.genre, disabled: false }, [Validators.required]],

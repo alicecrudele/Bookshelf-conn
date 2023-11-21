@@ -71,17 +71,18 @@ export class ManagebookComponent  {
 
   save(e: any) {
     if (this.formGroup.invalid) {
-      const errors = this.commonHelper.showErrors(
-        this.formGroup, ['error.required'],
-        'book',
+      //const errors = this.commonHelper.showErrors(
+      //  this.formGroup, ['error.required'],
+      //  'book',
 
         //modificare e togliere la label
-        (label) => {
-          return this.resourceSvc.getlabel(label);
-          
-        });
-      errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
-      return;
+        //(label) => {
+        //  return this.resourceSvc.getlabel(label);
+
+        //});
+      //errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
+      //return;
+
     }
 
     this.repositorySvc.createBook<Book>(this.book).subscribe(res => {

@@ -2,18 +2,21 @@
   <div class="form">
     <form [formGroup]="formGroup">
       <div class="book">
-        <div>
-          <label>
-            <span class="title"> Title: </span>
-            <input type="text" formControlName="title" />
-          </label>
-        </div>
+
         <div>
           <label>
             <span class="text-style"> Author: </span>
             <input type="text" formControlName="author" />
           </label>
         </div>
+
+        <div>
+          <label>
+            <span class="text-style"> Title: </span>
+            <input type="text" formControlName="titleBook" />
+          </label>
+        </div>
+
         <div>
           <label>
             <span class="text-style"> Genre: </span>
@@ -42,19 +45,14 @@
           <label>
             <span class="description"> Description: </span>
             <br />
-            <textarea type="text" formControlName="description" ></textarea>
+            <textarea type="text" formControlName="description"></textarea>
           </label>
         </div>
-
-        <div>
-          <!--<div class="save-heart">
-            <img src="../../../assets/images/heart-regular.svg" />
-          </div>-->
+          
           <div class="save">
             <button class="save-button" (click)="save($event)"> Save </button>
           </div>
         </div>
-      </div>
     </form>
   </div>
 </div>
