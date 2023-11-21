@@ -7,6 +7,8 @@ import { RepositoryService } from '../../services/repository.service';
 import { CommonService } from '../../services/common.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonHelper } from '../../helpers/common.helper';
+import { ToastType } from '../../classes/toastMessage';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'bookdetail',
@@ -29,6 +31,7 @@ export class BookdetailComponent {
     private repositorySvc: RepositoryService,
     private commonHelper: CommonHelper,
     private route: ActivatedRoute,
+    private toastSvc: ToastService
   ) {
     this.route.params.subscribe(params => {
       if (params) {
@@ -79,25 +82,24 @@ export class BookdetailComponent {
       //  (label) => {
       //    return this.resourceSvc.getLabel(label);
       //  });
-      //errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
+      e.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
       return;
     }
 
-    const formData = new FormData();
-    formData.append("book", JSON.stringify(this.formGroup.value));
+    //const formData = new FormData();
+    //formData.append("book", JSON.stringify(this.formGroup.value));
 
-
-    if (this.book == null) {
-      this.repositorySvc.createBook<FormData>(formData).subscribe(res => {
-      }, error => {
-        console.log(error);
-      });
-    } else {
-      this.repositorySvc.updateBook<FormData>(this.book.id, formData).subscribe(res => {
-      }, error => {
-        console.log(error);
-      });
-    }
+    //if (this.book == null) {
+    //  this.repositorySvc.createBook<FormData>(formData).subscribe(res => {
+    //  }, error => {
+    //    console.log(error);
+    //  });
+    //} else {
+    //  this.repositorySvc.updateBook<FormData>(this.book.id, formData).subscribe(res => {
+    //  }, error => {
+    //    console.log(error);
+    //  });
+    //}
 
     this.router.navigate(['/books']);
   }

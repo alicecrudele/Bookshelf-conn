@@ -74,8 +74,11 @@ export class ManagebookComponent  {
       const errors = this.commonHelper.showErrors(
         this.formGroup, ['error.required'],
         'book',
+
+        //modificare e togliere la label
         (label) => {
           return this.resourceSvc.getlabel(label);
+          
         });
       errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
       return;
@@ -91,7 +94,6 @@ export class ManagebookComponent  {
     });
 
   }
-
 
   public cancel(data: any) {
     this.router.navigate(['/books']);
