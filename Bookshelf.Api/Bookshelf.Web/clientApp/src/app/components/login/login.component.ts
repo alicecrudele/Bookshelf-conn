@@ -52,5 +52,10 @@ export class LoginComponent {
 
   save() {
     this.router.navigate(['/books']);
+
+    // if(username e password sono giusti){ mostra anche le altre pagine}
+    // else {mostra solo la pagina di login e non le altre}
+
+
   }
 }

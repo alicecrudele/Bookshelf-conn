@@ -16,6 +16,7 @@ export enum GenreType {
 @Pipe({
   name: 'enumToDescription',
 })
+
 export class EnumToDescriptionPipe implements PipeTransform {
   transform(value: GenreType): string {
     return GenreType[value];

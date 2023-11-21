@@ -24,16 +24,32 @@
           </label>
         </div>
         <div class="col-md-4 align-inputs">
-          <label>
+          <label for="genre">
             Genre:
-            <input type="text" formControlName="genre" placeholder="Enter the genre of the book..." class="input" />
-            <!--<p> (P.S. only: fiction, mystery, thriller, horror, historical, <br /> romance, western, science fiction, fantasy, poetry ) </p>-->
+            <!--<input type="text" formControlName="genre" placeholder="Enter the genre of the book..." class="input" />-->
+            <div>
+              <select class="dropdown" name="genre" id="genre">
+                <option value="enter">Enter the genre of the book...</option>
+                <option value="fiction">fiction</option>
+                <option value="mystery">mystery</option>
+                <option value="thriller">thriller</option>
+                <option value="horror">horror</option>
+                <option value="historical">historical</option>
+                <option value="romance">romance</option>
+                <option value="western">western</option>
+                <option value="science_fiction">science fiction</option>
+                <option value="fantasy">fantasy</option>
+                <option value="poetry">poetry</option>
+              </select>
+            </div>
+            
+
           </label>          
         </div>
         <div class="col-md-4 align-inputs">
           <label>
             Release:
-            <input type="text" formControlName="publish_Year" placeholder="Enter when the book was release..." class="input" />
+            <input type="text" formControlName="publish_Year" placeholder="Enter only the year when the book was release..." class="input" />
           </label>
         </div>
         <div class="col-md-4 align-inputs">
