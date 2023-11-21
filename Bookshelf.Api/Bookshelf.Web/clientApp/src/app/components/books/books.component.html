@@ -62,8 +62,8 @@
       </th>
     </tr>
     <hr />
-    <tr *ngFor="let book of gridData">
-      <td [routerLink]="['/bookdetail']">{{book.title}}</td>
+    <tr *ngFor="let book of gridData" (click)="viewEditButtonClick(book, this)" >
+      <td>{{book.title}}</td>
       <td>{{book.author}}</td>
       <td>{{book.genre}}</td>
       <td>{{book.price}} €</td>
