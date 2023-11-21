@@ -104,7 +104,7 @@ namespace Bookshelf.Web.Services
                 {
 
                     var bookRepo = new BookDtoRepository(_connectionConfig);
-                    bookRepo.GetBook(id);
+                    dto = bookRepo.GetBook(id);
 
                     scope.Complete();
                 }
@@ -160,11 +160,14 @@ namespace Bookshelf.Web.Services
             try
             {
                 using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
-                { 
-                    //something
+                {
+                    var bookRepo = new BookDtoRepository(_connectionConfig);
+                    bookRepo.DeleteBook(id);
 
                     scope.Complete();
+                    return;
                 }
+
             }
             catch (Exception ex)
             {

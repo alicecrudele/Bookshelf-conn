@@ -1,3 +1,7 @@
+<div class="searchbar">
+  <search-input (onSearch)="onChangeSearchText($event)"></search-input>
+</div>
+
 <div class="genre-nav">
   <ul>
     <li>
@@ -66,8 +70,8 @@
       <td>{{book.publish_Year}}</td>
       <td>{{book.publisher}}</td>
       <td>
-        <img src="../../../assets/images/pen-to-square-regular.svg" class="modify-image" [routerLink]="['/bookdetail']" />
-        <img src="../../../assets/images/trash-solid.svg" (click)="delete()" class="delete-image" />
+        <img src="../../../assets/images/pen-to-square-regular.svg" class="modify-image" (click)="viewEditButtonClick(book, this)" />
+        <img src="../../../assets/images/trash-solid.svg" (click)="delete(book, this)" class="delete-image" />
       </td>
     </tr>
   </table>

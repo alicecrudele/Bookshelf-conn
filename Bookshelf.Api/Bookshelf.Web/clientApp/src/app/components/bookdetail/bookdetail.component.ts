@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Book } from '../../classes/book';
 import { Observable } from 'rxjs';
 import { GridConstantsConfig } from '../../interfaces/gridColumn.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RepositoryService } from '../../services/repository.service';
 import { CommonService } from '../../services/common.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CommonHelper } from '../../helpers/common.helper';
 
 @Component({
   selector: 'bookdetail',
@@ -18,23 +19,42 @@ export class BookdetailComponent {
   public gridData: Book[];
   public originalData: Book[];
   public constantsListener: Observable<GridConstantsConfig>;
+  private bookId?: number;
+  private book?: Book;
 
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private repositorySvc: RepositoryService,
-    private commonSvc: CommonService,
-
+    private commonHelper: CommonHelper,
+    private route: ActivatedRoute,
   ) {
+    this.route.params.subscribe(params => {
+      if (params) {
+        const paramId = params['id'];
 
-    this.gridData = [];
-
+        if (this.commonHelper.isEmptyOrSpaces(paramId)) {
+          // Create
+          this.setFormGroup();
+        } else {
+          // Update
+          this.bookId = +paramId;
+          this.loadData();
+        }
+      }
+    });
   }
-
-  public loadData(item: Book)
+  
+  public loadData()
   {
-    // caricare i dati del libro all'interno degli input come se fossero dei placeholder
+    this.repositorySvc.getBook<Book>(this.bookId).then(res => {
+      console.log('RES: ', res);
+      this.book = res;
+      this.setFormGroup(res);
+    }, error => {
+      console.log(error);
+    });
   }
 
 
@@ -51,9 +71,34 @@ export class BookdetailComponent {
     });
   }
 
-  save() {
-    this.router.navigate(['/books']);
+  save(e: any) {
+    if (this.formGroup.invalid) {
+      //const errors = this.commonHelper.showErrors(
+      //  this.formGroup, ['error.required'],
+      //  'machine',
+      //  (label) => {
+      //    return this.resourceSvc.getLabel(label);
+      //  });
+      //errors.forEach(message => this.toastSvc.openToast(ToastType.Warning, message));
+      return;
+    }
 
-    // fare come nella create, cliccando salva mi aggiorna i dati nella tabella dei libri e nel db
+    const formData = new FormData();
+    formData.append("book", JSON.stringify(this.formGroup.value));
+
+
+    if (this.book == null) {
+      this.repositorySvc.createBook<FormData>(formData).then(res => {
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      this.repositorySvc.updateBook<FormData>(this.book.id, formData).then(res => {
+      }, error => {
+        console.log(error);
+      });
+    }
+
+    this.router.navigate(['/books']);
   }
 }

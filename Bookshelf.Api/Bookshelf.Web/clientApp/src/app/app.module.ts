@@ -58,8 +58,18 @@ import { ToastService } from './services/toast.service';
       { path: 'books', component: BooksComponent },
       {
         path: 'bookdetail',
-        component: BookdetailComponent,
-        canActivate: [CanActivateGuard]
+        children: [
+          {
+            path: ':id',
+            component: BookdetailComponent,
+            canActivate: [CanActivateGuard]
+          },
+          {
+            path: '',
+            component: BookdetailComponent,
+            canActivate: [CanActivateGuard]
+          }
+        ]
       },
       { path: 'genres', component: GenresComponent },
       {

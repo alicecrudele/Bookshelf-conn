@@ -41,7 +41,7 @@ export class RepositoryService {
   }
 
   public updateBook<T>(id:number, data: T) {
-    return this.putWithLinkBase<T>(this.http, this.constantHelper.DATA_UPDATE_BOOK + '/' + id, undefined, undefined);
+    return this.putWithLinkBase<T>(this.http, this.constantHelper.DATA_UPDATE_BOOK + '/' + id, data, null);
   }
 
   public deleteBook<T>(id:number, data: T) {
@@ -80,7 +80,7 @@ export class RepositoryService {
   }
 
   private putWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any) {
-    return http.put<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions);
+    return http.put<T>(this.baseUrl + link + this.commonHelper.buildQueryString(parameters), data, httpOptions).toPromise();
   }
 
   private postWithLinkBase<T>(http: HttpClient, link: string, data: T, parameters: any) {

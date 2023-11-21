@@ -11,6 +11,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bookshelf.Api.Database.Mappers;
+using Bookshelf.Api.Domain.Entities;
+using System.Diagnostics;
 
 namespace Bookshelf.Api.Database.Repositories
 {
@@ -60,15 +63,15 @@ namespace Bookshelf.Api.Database.Repositories
         public BookDto GetBook(long id)
         {
             string query;
-            BookDto result = new BookDto();
+            Book result = new Book();
             using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
             {
                 query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_SELECT_BY_ID}");
-                result = connection.Query<BookDto>(query).FirstOrDefault();
-
+                result = connection.Query<Book>(query, param: new { Id = id }).FirstOrDefault();
+                
                 connection.Close();
             }
-            return result;
+            return BookDtoMapper.EntityToDto(result);
         }
 
         public long CreateBook(BookDto dto)
@@ -80,8 +83,16 @@ namespace Bookshelf.Api.Database.Repositories
                 {
                     long? insertedId;
                     var query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_INSERT}");
-                    insertedId = connection.QuerySingle<long>(query, dto, tran);
-                    
+                    insertedId = connection.QuerySingle<long>(query, param: new { 
+                        Title = dto.Title, 
+                        Author = dto.Author, 
+                        Price = dto.Price, 
+                        Genre = dto.Genre, 
+                        Publish_year = dto.Publish_Year,
+                        Publisher = dto.Publisher,
+                        Description = dto.Description
+                    }, tran);
+
                     tran.Commit();
 
                     res = insertedId.Value;
@@ -105,12 +116,13 @@ namespace Bookshelf.Api.Database.Repositories
 
         }
 
-        public void DeleteBook(long id, BookDto dto)
+        public void DeleteBook(long id)
         {
             using (IDbConnection connection = sqlConnectionFactory.CreateConnection())
             {
 
                 var query = ResourceHelper.GetResourceAsText($"{DatabaseConst.RESOURCE_BASE_PATH}{DatabaseConst.BASE_PATH_BOOK}{DatabaseConst.BOOK_DTO_DELETE_BY_ID}");
+                connection.Execute(query, param: new { Id = id });
 
                 connection.Close();
             }
